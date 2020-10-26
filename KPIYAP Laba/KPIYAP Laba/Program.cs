@@ -11,7 +11,7 @@ namespace KPIYAP_Laba
     {
         static void Main(string[] args)
         {
-            Room room = new Room(1, 1, 1, 1);
+            Room room = new Room(3,2.5,6,1);
             room.SetWindowsSize();
             Console.WriteLine(room.GetSquareOfRoom());
             Console.WriteLine(room.GetSquareForGluing());

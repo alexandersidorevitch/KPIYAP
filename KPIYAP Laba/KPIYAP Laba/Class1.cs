@@ -239,7 +239,7 @@ namespace KPIYAP_Laba
         {
         }
         public Room(double width, double height, double lenght, int count_of_windows) : this(width, height, lenght, count_of_windows, 0.53, 10)
-        {
+        { 
         }
         public Room(double width, double height, double lenght, int count_of_windows, double width_of_rolls, double lenght_of_rolls)
         {
