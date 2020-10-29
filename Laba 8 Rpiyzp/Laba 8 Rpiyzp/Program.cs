@@ -51,21 +51,23 @@ namespace Laba_8_Rpiyzp
             Fonts.Add("T", "Times New Roman");
             Fonts.Add("C", "Calibri");
             Fonts.Add("M", "Mistral");
-            Regex first_reg = new Regex(@"Ff([ATCM])(.+)");
+
+            Regex first_reg = new Regex($@"Ff([{String.Join("", Fonts.Keys)}])(.+)");
             Regex second_reg = new Regex(@"su(.+)");
-            string result = "";
+
+            StringBuilder result = new StringBuilder();
             foreach (string line in reader.ReadToEnd().Split('\n'))
             {
                 if (first_reg.IsMatch(line))
                 {
-                    result += $"<font face= {Fonts[first_reg.Match(line).Groups[1].Value]}> {first_reg.Match(line).Groups[2].Value} </font>";
+                    result.Append( $"<font face= {Fonts[first_reg.Match(line).Groups[1].Value]}> {first_reg.Match(line).Groups[2].Value} </font>");
                 }
                 else if (second_reg.IsMatch(line))
                 {
-                    result += $"<sub>{second_reg.Match(line).Groups[1].Value} </sub>";
+                    result.Append($"<sub>{second_reg.Match(line).Groups[1].Value} </sub>");
                 }
             }
-            GreateHtmlDoc(result);
+            GreateHtmlDoc(result.ToString());
         }
         static void Main(string[] args)
         {
