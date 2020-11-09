@@ -6,12 +6,6 @@ using System.Threading.Tasks;
 
 namespace struct_Laba_9_
 {
-    enum Banks
-    {
-        BelinvestBank,
-        BelarusBank,
-        DobrabitBank,
-    }
     struct ClientBank
     {
         public string FIO;
@@ -22,15 +16,16 @@ namespace struct_Laba_9_
 
         public void changeInfo()
         {
-            Console.WriteLine("Введите ваше ");
+            Console.WriteLine("Введите ваше ФИО");
             FIO = Console.ReadLine();
 
             Console.WriteLine("Выберите банк (введите его номер)");
+            int num = 1;
             foreach (string Bank in Enum.GetNames(typeof(Banks)))
             {
-                Console.WriteLine(Bank);
+                Console.WriteLine($"{num++}){Bank}");
             }
-            bank = (Banks)int.Parse(Console.ReadLine());
+            bank = (Banks)(int.Parse(Console.ReadLine()) - 1);
 
             Console.WriteLine("Введите номер счета");
             FEE = int.Parse(Console.ReadLine());
@@ -38,7 +33,7 @@ namespace struct_Laba_9_
             Console.WriteLine("Введите кол-во денег");
             countMoney = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Введите дату последнего изменения");
+            Console.WriteLine("Введите дату последнего изменения (дд.мм.гггг)");
             dateLastChange = DateTime.Parse(Console.ReadLine());
         }
         public void printInfo()
